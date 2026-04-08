@@ -676,10 +676,10 @@ pub async fn launch_minecraft(
     }
 
     let selected_phrase = ACTIVE_STATE.choose(&mut rand::thread_rng()).unwrap();
-        let _ = state
-            .discord_rpc
-            .set_activity(&format!("{} {}", selected_phrase, profile.name), true)
-            .await;
+    let _ = state
+        .discord_rpc
+        .set_activity(&format!("{} {}", selected_phrase, profile.name), true)
+        .await;
 
     // Create Minecraft child by inserting it into the state
     // This also spawns the process and prepares the subsequent processes

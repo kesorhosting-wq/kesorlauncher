@@ -100,27 +100,31 @@ onUnmounted(() => {
 
 <template>
   <div class="page-container">
-    <RowDisplay v-if="total > 0" :instances="[
-      {
-        label: 'Jump back in',
-        route: '/library',
-        instances: recentInstances,
-        instance: true,
-        downloaded: true,
-      },
-      {
-        label: 'Popular packs',
-        route: '/browse/modpack',
-        instances: featuredModpacks,
-        downloaded: false,
-      },
-      {
-        label: 'Popular mods',
-        route: '/browse/mod',
-        instances: featuredMods,
-        downloaded: false,
-      },
-    ]" :can-paginate="true" />
+    <RowDisplay
+      v-if="total > 0"
+      :instances="[
+        {
+          label: 'Jump back in',
+          route: '/library',
+          instances: recentInstances,
+          instance: true,
+          downloaded: true,
+        },
+        {
+          label: 'Popular packs',
+          route: '/browse/modpack',
+          instances: featuredModpacks,
+          downloaded: false,
+        },
+        {
+          label: 'Popular mods',
+          route: '/browse/mod',
+          instances: featuredMods,
+          downloaded: false,
+        },
+      ]"
+      :can-paginate="true"
+    />
   </div>
 </template>
 

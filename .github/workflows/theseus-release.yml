@@ -1,4 +1,4 @@
-name: 'AstralRinth App build'
+name: 'Kesor Launcher build'
 on:
   push:
     branches:

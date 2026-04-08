@@ -43,6 +43,14 @@ defineExpose({
 </script>
 
 <template>
-  <ShareModal ref="modal" :header="header" :share-title="shareTitle" :share-text="shareText" :link="link"
-    :open-in-new-tab="openInNewTab" :on-hide="onModalHide" :noblur="!themeStore.advancedRendering" />
+  <ShareModal
+    ref="modal"
+    :header="header"
+    :share-title="shareTitle"
+    :share-text="shareText"
+    :link="link"
+    :open-in-new-tab="openInNewTab"
+    :on-hide="onModalHide"
+    :noblur="!themeStore.advancedRendering"
+  />
 </template>

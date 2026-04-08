@@ -108,7 +108,7 @@ impl DiscordGuard {
         let launcher =
             utils::read_package_json().expect("Failed to read package.json");
 
-        let build_info = format!("AR • v{}", launcher.version);
+        let build_info = format!("Kesor Launcher • v{}", launcher.version);
         let build_download = "https://astralium.su/get/ar";
 
         let time = SystemTime::now()
@@ -119,9 +119,9 @@ impl DiscordGuard {
             .state(msg)
             .assets(
                 Assets::new()
-                    .large_image("astralrinth_logo")
+                    .large_image("kesorlauncher_logo")
                     .large_text(&build_info)
-                    .small_image("astralrinth_logo")
+                    .small_image("kesorlauncher_logo")
                     .small_text(&build_download),
             )
             .timestamps(Timestamps::new().start(time));

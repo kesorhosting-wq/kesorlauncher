@@ -69,7 +69,7 @@ const install = async (e) => {
       <div
         class="banner"
         :style="{
-          'background-color': project.featured_gallery ?? project.gallery[0] ? null : toColor,
+          'background-color': (project.featured_gallery ?? project.gallery[0]) ? null : toColor,
           'background-image': `url(${
             project.featured_gallery ??
             project.gallery[0] ??

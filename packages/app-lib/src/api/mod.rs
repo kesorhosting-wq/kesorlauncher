@@ -1,5 +1,6 @@
 //! API for interacting with Theseus
 pub mod cache;
+pub mod download;
 pub mod handler;
 pub mod jre;
 pub mod logs;
@@ -11,7 +12,6 @@ pub mod process;
 pub mod profile;
 pub mod settings;
 pub mod tags;
-pub mod download;
 
 pub mod data {
     pub use crate::state::{

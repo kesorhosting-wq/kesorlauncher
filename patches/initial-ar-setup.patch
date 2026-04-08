@@ -230,7 +230,7 @@ index 9954a0d5..dfff2656 100644
 +++ b/.github/workflows/app-release.yml
 @@ -1,9 +1,10 @@
 -name: 'Modrinth App build'
-+name: 'AstralRinth App build'
++name: 'KesorLauncher build'
  on:
    push:
      branches:
@@ -1463,22 +1463,22 @@ index 9bf4cc6a..3fbe3766 100644
 -## License
 -
 -All packages in this repository are licensed under their respective licenses. Refer to the LICENSE file in each package for more information.
-+![ar_logo](https://github.com/DIDIRUS4/AstralRinth/assets/77334306/43d4acb0-546c-4dff-834d-83fb2ba6ad6f)
++![ar_logo](https://github.com/KesorHosting/KesorLauncher/assets/77334306/43d4acb0-546c-4dff-834d-83fb2ba6ad6f)
 +
-+# AR • Theseus core Empowering Your Minecraft Adventure with AstralRinth • Fork of Modrinth
++# AR • Theseus core Empowering Your Minecraft Adventure with KesorLauncher • Fork of Modrinth
 +Welcome to AR • Fork of Modrinth, the ultimate game launcher designed to enhance your Minecraft experience through the Modrinth platform and their API. Whether you're a command-line connoisseur, a graphical interface enthusiast, or a developer integrating Modrinth projects, Theseus core is your gateway to a new level of Minecraft gaming.
 +
 +# AR • About software 🌌
-+Introducing AstralRinth, a specialized variant of Theseus dedicated to implementing offline authorization for an even more flexible and user-centric Minecraft Modrinth experience. Roam the Minecraft realms without the constraints of online authentication, thanks to AstralRinth.
++Introducing KesorLauncher, a specialized variant of Theseus dedicated to implementing offline authorization for an even more flexible and user-centric Minecraft Modrinth experience. Roam the Minecraft realms without the constraints of online authentication, thanks to KesorLauncher.
 +
 +For seekers of a visually intuitive experience, Theseus-GUI delivers a sleek and user-friendly interface to explore, manage, and play Minecraft with Modrinth projects. Uncover the full potential of Modrinth effortlessly with Theseus-GUI.
 +
 +# AR • Unlocking Minecraft's Boundless Horizon
 +
-+Dive into the extraordinary world of AstralRinth, a fork of the original project with a unique focus on providing a free trial experience for Minecraft, all without the need for a license. Currently boasting:
++Dive into the extraordinary world of KesorLauncher, a fork of the original project with a unique focus on providing a free trial experience for Minecraft, all without the need for a license. Currently boasting:
 +
 +# Install instructions
-+- To install our application, you need to download a file for your operating system from our available releases or development builds • [Download variants here](https://github.com/DIDIRUS4/AstralRinth/releases)
++- To install our application, you need to download a file for your operating system from our available releases or development builds • [Download variants here](https://github.com/KesorHosting/KesorLauncher/releases)
 +- After you have downloaded the required executable file or archive, then open it
 +
 +### Available file extensions (Also used in Auto-updater)
@@ -1492,7 +1492,7 @@ index 9bf4cc6a..3fbe3766 100644
 +
 +## Features
 +### Featured enhancement in AR
-+- AstralRinth offers a range of authorization options, giving users the flexibility to log in with valid licenses or even a pirate account without auth credentials breaks (_Unlike MultiMC Cracked and similar software_). Experience Minecraft on your terms, breaking free from traditional licensing constraints (_Popular in Russian Federation_).
++- KesorLauncher offers a range of authorization options, giving users the flexibility to log in with valid licenses or even a pirate account without auth credentials breaks (_Unlike MultiMC Cracked and similar software_). Experience Minecraft on your terms, breaking free from traditional licensing constraints (_Popular in Russian Federation_).
 +### Easy to use
 +- Using the launcher is intuitive, any user can figure it out.
 +### Update notifies
@@ -1501,24 +1501,24 @@ index 9bf4cc6a..3fbe3766 100644
 +- Custom .SVG vectors for a personalized touch.
 +- Improved compatibility for both pirate and licensed accounts.
 +- Beautiful Discord RPC with random messages while playing, along with an in-game timer and AFK counter.
-+- Forced disabling of statistics collection (modrinch metrics) with a hard patch from AstralRinth, ensuring it remains deactivated regardless of the configuration setting.
++- Forced disabling of statistics collection (modrinch metrics) with a hard patch from KesorLauncher, ensuring it remains deactivated regardless of the configuration setting.
 +- Removal of advertisements from all launcher categories.
 +- Visual fixes and enhancements for an improved user experience.
 +- Optimization of packages (archives).
 +- Automatic updates, facilitating the seamless download of the latest version.
 +- And more...
 +## Getting Started
-+To begin your AstralRinth adventure, follow these steps:
-+1. **Download your OS version in releases** • [Download variants here](https://github.com/DIDIRUS4/AstralRinth/releases)
++To begin your KesorLauncher adventure, follow these steps:
++1. **Download your OS version in releases** • [Download variants here](https://github.com/KesorHosting/KesorLauncher/releases)
 +
 +2. **Select Your Language:** Choose between available languages in settings by configuring your language preferences.
 +
-+3. **Authentication:** Enjoy the freedom to log in using a valid license or, for testing purposes, explore AstralRinth with a pirate account.
++3. **Authentication:** Enjoy the freedom to log in using a valid license or, for testing purposes, explore KesorLauncher with a pirate account.
 +
-+4. **Launch Minecraft:** Fire up Minecraft through AstralRinth and explore the vast landscapes and adventures that await you.
++4. **Launch Minecraft:** Fire up Minecraft through KesorLauncher and explore the vast landscapes and adventures that await you.
 +# Disclaimer
 +**Notice:** 
-+- AstralRinth is a project intended for experimentation and educational purposes only. It does not endorse or support piracy, and users are encouraged to obtain valid licenses for a fully-supported Minecraft experience.
++- KesorLauncher is a project intended for experimentation and educational purposes only. It does not endorse or support piracy, and users are encouraged to obtain valid licenses for a fully-supported Minecraft experience.
 +
 +- Users are reminded to respect licensing agreements and support the developers of Minecraft.
 +
@@ -1576,7 +1576,7 @@ index f5cd667b..c74d4d5b 100644
  
    initAnalytics()
    if (!telemetry) {
-+    console.info("[AstralRinth] Telemetry disabled by default (Hard patched in code).")
++    console.info("[KesorLauncher] Telemetry disabled by default (Hard patched in code).")
      optOutAnalytics()
    }
    if (dev) debugAnalytics()
@@ -2262,7 +2262,7 @@ index ad600fc7..2b512d64 100644
 +        </Button>
 +      </a>
 +    </div>
-+    <ModalWrapper ref="confirmUpdate" :has-to-type="false" header="Request to update the AstralRinth launcher">
++    <ModalWrapper ref="confirmUpdate" :has-to-type="false" header="Request to update KesorLauncher">
 +      <div class="modal-body">
 +        <div class="markdown-body">
 +          <p>
@@ -2657,8 +2657,8 @@ index 00000000..f3b8295f
 +export const launcherUrl = 'https://www.astralium.su/get/ar'
 +
 +const os = ref('')
-+const releaseLink = `https://api.github.com/repos/DIDIRUS4/AstralRinth/releases/latest`
-+const branchesLink = `https://api.github.com/repos/DIDIRUS4/AstralRinth/branches`
++const releaseLink = `https://api.github.com/repos/KesorHosting/KesorLauncher/releases/latest`
++const branchesLink = `https://api.github.com/repos/KesorHosting/KesorLauncher/branches`
 +const failedFetch = [`Failed to fetch remote releases:`, `Failed to fetch remote commits:`]
 +const localVersion = `v${version}`
 +const betaBranch = `beta` // Github repository beta branch
@@ -3185,7 +3185,7 @@ index 1e14efc0..afee22be 100644
            <span class="label__title">Telemetry</span>
            <span class="label__description">
 -            Modrinth collects anonymized analytics and usage data to improve our user experience and
-+            (Always disabled by AstralRinth) • Modrinth collects anonymized analytics and usage data to improve our user experience and
++            (Always disabled by KesorLauncher) • Modrinth collects anonymized analytics and usage data to improve our user experience and
              customize your experience. By disabling this option, you opt out and your data will no
 -            longer be collected.
 +            longer be collected. 
@@ -3394,7 +3394,7 @@ index 1e14efc0..afee22be 100644
          <label>
 -          <span class="label__title">App version</span>
 -          <span class="label__description">Modrinth App v{{ version }} </span>
-+          <span class="label__title inl">AstralRinth <PirateShipIcon /> Version • {{ version }}</span>
++          <span class="label__title inl">KesorLauncher <PirateShipIcon /> Version • {{ version }}</span>
 +
 +          <span class="label__description"
 +            >Latest beta commit • 
@@ -3588,13 +3588,13 @@ index 2e875fe1..a3069984 100644
              <dict>
                  <key>CFBundleURLName</key>
 -                <string>ModrinthApp</string>
-+                <string>AstralRinthApp</string>
++                <string>KesorLauncher</string>
                  <key>CFBundleURLSchemes</key>
                  <array>
 -                    <string>modrinth</string>
 -                    <string>modrinthscheme</string>
-+                    <string>astralrinth</string>
-+                    <string>astralrinthscheme</string>
++                    <string>kesorlauncher</string>
++                    <string>kesorlauncherscheme</string>
                  </array>
              </dict>
          </array>
@@ -4394,10 +4394,10 @@ index d28d2c41..9cc3f11c 100644
      ]
    },
 -  "productName": "Modrinth App",
-+  "productName": "AstralRinth App",
++  "productName": "KesorLauncher",
    "version": "0.8.5",
 -  "identifier": "ModrinthApp",
-+  "identifier": "AstralRinth",
++  "identifier": "KesorLauncher",
    "plugins": {
      "deep-link": {
        "desktop": {
@@ -4406,7 +4406,7 @@ index d28d2c41..9cc3f11c 100644
          "height": 800,
          "resizable": true,
 -        "title": "Modrinth App",
-+        "title": "AstralRinth",
++        "title": "KesorLauncher",
          "width": 1280,
          "minHeight": 750,
          "minWidth": 1100,
@@ -4432,7 +4432,7 @@ index d618f322..36a54d5c 100644
          "height": 800,
          "resizable": true,
 -        "title": "Modrinth App",
-+        "title": "AstralRinth",
++        "title": "KesorLauncher",
          "width": 1280,
          "minHeight": 700,
          "minWidth": 1100,
@@ -4595,7 +4595,7 @@ index 6a7c3ae7..96148a91 100644
      pub fn get_initial_settings_dir() -> Option<PathBuf> {
          Self::env_path("THESEUS_CONFIG_DIR")
 -            .or_else(|| Some(dirs::data_dir()?.join("ModrinthApp")))
-+            .or_else(|| Some(dirs::data_dir()?.join("AstralRinthApp")))
++            .or_else(|| Some(dirs::data_dir()?.join("KesorLauncher")))
      }
  
      /// Get all paths needed for Theseus to operate properly
@@ -4684,9 +4684,9 @@ index 0c1ee726..d5803cd2 100644
 +            .state(msg)
 +            .assets(
 +                Assets::new()
-+                    .large_image("astralrinth_logo")
++                    .large_image("kesorlauncher_logo")
 +                    .large_text(&build_info)
-+                    .small_image("astralrinth_logo")
++                    .small_image("kesorlauncher_logo")
 +                    .small_text(&build_download),
 +            )
 +            .timestamps(Timestamps::new().start(time));
@@ -4897,13 +4897,13 @@ index 1eca3e5b..1b5c156e 100644
  
  import './omorphia.scss'
  
-+// AstralRinth Icons
++// KesorLauncher Icons
 +
 +import _PirateIcon from './icons/pirate.svg?component'
 +import _MicrosoftIcon from './icons/microsoft.svg?component'
 +import _PirateShipIcon from './icons/pirate-ship.svg?component'
 +
-+// AstralRinth Exports
++// KesorLauncher Exports
 +
 +export const PirateIcon = _PirateIcon
 +export const MicrosoftIcon = _MicrosoftIcon

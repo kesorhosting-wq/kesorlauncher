@@ -50,7 +50,15 @@ function proceed() {
 </script>
 
 <template>
-  <ConfirmModal ref="modal" :confirmation-text="confirmationText" :has-to-type="hasToType" :title="title"
-    :description="description" :proceed-label="proceedLabel" :on-hide="onModalHide"
-    :noblur="!themeStore.advancedRendering" @proceed="proceed" />
+  <ConfirmModal
+    ref="modal"
+    :confirmation-text="confirmationText"
+    :has-to-type="hasToType"
+    :title="title"
+    :description="description"
+    :proceed-label="proceedLabel"
+    :on-hide="onModalHide"
+    :noblur="!themeStore.advancedRendering"
+    @proceed="proceed"
+  />
 </template>

@@ -1,19 +1,34 @@
 <template>
-  <div v-if="mode !== 'isolated'" ref="button" v-tooltip.right="'Minecraft accounts'" class="button-base avatar-button"
-    :class="{ expanded: mode === 'expanded' }" @click="toggleMenu">
-    <Avatar :size="mode === 'expanded' ? 'xs' : 'sm'" :src="selectedAccount
-      ? `https://mc-heads.net/avatar/${selectedAccount.username}/128`
-      : 'https://launcher-files.modrinth.com/assets/steve_head.png'
-      " />
+  <div
+    v-if="mode !== 'isolated'"
+    ref="button"
+    v-tooltip.right="'Minecraft accounts'"
+    class="button-base avatar-button"
+    :class="{ expanded: mode === 'expanded' }"
+    @click="toggleMenu"
+  >
+    <Avatar
+      :size="mode === 'expanded' ? 'xs' : 'sm'"
+      :src="
+        selectedAccount
+          ? `https://mc-heads.net/avatar/${selectedAccount.username}/128`
+          : 'https://launcher-files.modrinth.com/assets/steve_head.png'
+      "
+    />
   </div>
   <transition name="fade">
-    <Card v-if="showCard || mode === 'isolated'" ref="card" class="account-card"
-      :class="{ expanded: mode === 'expanded', isolated: mode === 'isolated' }">
+    <Card
+      v-if="showCard || mode === 'isolated'"
+      ref="card"
+      class="account-card"
+      :class="{ expanded: mode === 'expanded', isolated: mode === 'isolated' }"
+    >
       <div v-if="selectedAccount" class="selected account">
         <Avatar size="xs" :src="`https://mc-heads.net/avatar/${selectedAccount.username}/128`" />
         <div>
           <h4>
-            <component :is="getAccountType(selectedAccount)" class="vector-icon" /> {{ selectedAccount.username }}
+            <component :is="getAccountType(selectedAccount)" class="vector-icon" />
+            {{ selectedAccount.username }}
           </h4>
           <p>Selected</p>
         </div>
@@ -58,17 +73,13 @@
     <div class="modal-body">
       <div class="label">Enter offline username</div>
       <input type="text" v-model="playerName" placeholder="Provide offline player name" />
-      <Button icon-only color="secondary" @click="offlineLoginFinally()">
-        Continue
-      </Button>
+      <Button icon-only color="secondary" @click="offlineLoginFinally()"> Continue </Button>
     </div>
   </ModalWrapper>
   <ModalWrapper ref="loginErrorModal" class="modal" header="Error while proceed">
     <div class="modal-body">
       <div class="label">Error occurred while adding offline account</div>
-      <Button color="primary" @click="retryOfflineLogin()">
-        Try again
-      </Button>
+      <Button color="primary" @click="retryOfflineLogin()"> Try again </Button>
     </div>
   </ModalWrapper>
   <ModalWrapper ref="unexpectedErrorModal" class="modal" header="Ошибка">
@@ -79,7 +90,13 @@
 </template>
 
 <script setup>
-import { PlusIcon, TrashIcon, LogInIcon, PirateIcon as Offline, MicrosoftIcon as License, MicrosoftIcon, PirateIcon } from '@modrinth/assets'
+import {
+  TrashIcon,
+  PirateIcon as Offline,
+  MicrosoftIcon as License,
+  MicrosoftIcon,
+  PirateIcon,
+} from '@modrinth/assets'
 import { Avatar, Button, Card } from '@modrinth/ui'
 import { ref, computed, onMounted, onBeforeUnmount, onUnmounted } from 'vue'
 import {
@@ -113,12 +130,14 @@ const loginErrorModal = ref(null)
 const unexpectedErrorModal = ref(null)
 const playerName = ref('')
 
-async function tryOfflineLogin() { // Patched
+async function tryOfflineLogin() {
+  // Patched
   loginOfflineModal.value.show()
 }
 
-async function offlineLoginFinally() { // Patched
-  let name = playerName.value
+async function offlineLoginFinally() {
+  // Patched
+  const name = playerName.value
   if (name.length > 1 && name.length < 20 && name !== '') {
     const loggedIn = await offline_login(name).catch(handleError)
     loginOfflineModal.value.hide()
@@ -136,13 +155,19 @@ async function offlineLoginFinally() { // Patched
   }
 }
 
-function retryOfflineLogin() { // Patched
+function retryOfflineLogin() {
+  // Patched
   loginErrorModal.value.hide()
   tryOfflineLogin()
 }
 
-function getAccountType(account) { // Patched
-  if (account.access_token != "null" && account.access_token != null && account.access_token != "") {
+function getAccountType(account) {
+  // Patched
+  if (
+    account.access_token != 'null' &&
+    account.access_token != null &&
+    account.access_token != ''
+  ) {
     return License
   } else {
     return Offline
@@ -250,7 +275,6 @@ onUnmounted(() => {
   border-radius: var(--radius-lg);
   gap: 1rem;
 }
-
 
 .vector-icon {
   width: 12px;

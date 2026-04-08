@@ -12,6 +12,8 @@ pub const CACHES_FOLDER_NAME: &str = "caches";
 pub const LAUNCHER_LOGS_FOLDER_NAME: &str = "launcher_logs";
 pub const PROFILES_FOLDER_NAME: &str = "profiles";
 pub const METADATA_FOLDER_NAME: &str = "meta";
+pub const LAUNCHER_DIR_NAME: &str = "Kesor Launcher";
+pub const LEGACY_LAUNCHER_DIR_NAME: &str = "KesorLauncher";
 
 #[derive(Debug)]
 pub struct DirectoryInfo {
@@ -27,9 +29,23 @@ impl DirectoryInfo {
             if std::env::current_dir().ok()?.join("portable.txt").exists() {
                 Some(std::path::Path::new("UserData").to_path_buf())
             } else {
-                Some(dirs::data_dir()?.join("AstralRinthApp"))
+                Self::default_settings_dir()
             }
         })
+    }
+
+    fn default_settings_dir() -> Option<PathBuf> {
+        let data_dir = dirs::data_dir()?;
+        let preferred_dir = data_dir.join(LAUNCHER_DIR_NAME);
+        let legacy_dir = data_dir.join(LEGACY_LAUNCHER_DIR_NAME);
+
+        if preferred_dir.exists() {
+            Some(preferred_dir)
+        } else if legacy_dir.exists() {
+            Some(legacy_dir)
+        } else {
+            Some(preferred_dir)
+        }
     }
 
     /// Get all paths needed for Theseus to operate properly

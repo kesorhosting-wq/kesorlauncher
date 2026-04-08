@@ -18,7 +18,7 @@ const props = defineProps({
   onHide: {
     type: Function,
     default() {
-      return () => { }
+      return () => {}
     },
   },
 })

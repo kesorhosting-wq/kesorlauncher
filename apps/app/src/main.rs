@@ -159,7 +159,7 @@ fn main() {
     */
     let _log_guard = theseus::start_logger();
 
-    tracing::info!("Initialized tracing subscriber. Loading Modrinth App!");
+    tracing::info!("Initialized tracing subscriber. Loading Kesor Launcher!");
 
     let mut builder = tauri::Builder::default();
 
@@ -196,7 +196,11 @@ fn main() {
                     {
                         std::env::current_dir()
                             .ok()
-                            .map(|dir| dir.join("UserData/app-window-state.json").to_string_lossy().into_owned())
+                            .map(|dir| {
+                                dir.join("UserData/app-window-state.json")
+                                    .to_string_lossy()
+                                    .into_owned()
+                            })
                             .unwrap()
                     } else {
                         "app-window-state.json".to_string()
@@ -329,7 +333,7 @@ fn main() {
                     MessageDialog::new()
                         .set_type(MessageType::Error)
                         .set_title("Initialization error")
-                        .set_text("Your Microsoft Edge WebView2 installation is corrupt.\n\nMicrosoft Edge WebView2 is required to run Modrinth App.\n\nLearn how to repair it at https://docs.modrinth.com/faq/app/webview2")
+                        .set_text("Your Microsoft Edge WebView2 installation is corrupt.\n\nMicrosoft Edge WebView2 is required to run Kesor Launcher.\n\nLearn how to repair it at https://docs.modrinth.com/faq/app/webview2")
                         .show_alert()
                         .unwrap();
 

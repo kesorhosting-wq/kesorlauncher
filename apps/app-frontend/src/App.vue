@@ -41,7 +41,6 @@ import { open } from '@tauri-apps/plugin-shell'
 import { get_opening_command, initialize_state } from '@/helpers/state'
 import { saveWindowState, StateFlags } from '@tauri-apps/plugin-window-state'
 import { renderString } from '@modrinth/utils'
-import { useFetch } from '@/helpers/fetch.js'
 // import { check } from '@tauri-apps/plugin-updater'
 
 const themeStore = useTheming()
@@ -99,7 +98,7 @@ async function setupApp() {
 
   initAnalytics()
   if (!telemetry) {
-    console.info("[AstralRinth] Telemetry disabled by default (Hard patched in code).")
+    console.info('[Kesor Launcher] Telemetry disabled by default (Hard patched in code).')
     optOutAnalytics()
   }
   if (dev) debugAnalytics()

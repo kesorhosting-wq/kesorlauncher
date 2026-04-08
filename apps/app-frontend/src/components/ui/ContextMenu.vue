@@ -1,13 +1,21 @@
 <template>
   <transition name="fade">
-    <div v-show="shown" ref="contextMenu" class="context-menu" :style="{
-      left: left,
-      top: top,
-    }">
+    <div
+      v-show="shown"
+      ref="contextMenu"
+      class="context-menu"
+      :style="{
+        left: left,
+        top: top,
+      }"
+    >
       <div v-for="(option, index) in options" :key="index" @click.stop="optionClicked(option.name)">
         <hr v-if="option.type === 'divider'" class="divider" />
-        <div v-else-if="!(isLinkedData(item) && option.name === `add_content`)" class="item clickable"
-          :class="[option.color ?? 'base']">
+        <div
+          v-else-if="!(isLinkedData(item) && option.name === `add_content`)"
+          class="item clickable"
+          :class="[option.color ?? 'base']"
+        >
           <slot :name="option.name" />
         </div>
       </div>
