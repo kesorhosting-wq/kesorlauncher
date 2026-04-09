@@ -51,7 +51,7 @@
   "productName": "Kesor Launcher",
   "version": "0.8.9",
   "mainBinaryName": "KesorLauncher",
-  "identifier": "KesorLauncher",
+  "identifier": "com.kesor.launcher",
   "plugins": {
     "deep-link": {
       "desktop": {

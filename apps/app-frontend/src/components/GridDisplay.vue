@@ -245,6 +245,9 @@ const filteredResults = computed(() => {
         <XIcon />
       </Button>
     </div>
+    <Button color="primary" @click="$router.push('/browse/modpack')">
+      <PlusIcon /> Add content
+    </Button>
     <div class="labeled_button">
       <span>Sort by</span>
       <DropdownSelect
