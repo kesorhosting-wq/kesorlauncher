@@ -24,6 +24,20 @@ const handleAddContentFromFile = async () => {
   }
 }
 
+const handleSearchShaders = async () => {
+  await router.push({
+    path: '/browse/shader',
+    query: { i: props.instance.path },
+  })
+}
+
+const handleSearchResourcePacks = async () => {
+  await router.push({
+    path: '/browse/resourcepack',
+    query: { i: props.instance.path },
+  })
+}
+
 const handleSearchContent = async () => {
   await router.push({
     path: `/browse/${props.instance.loader === 'vanilla' ? 'datapack' : 'mod'}`,
@@ -43,6 +57,14 @@ const handleSearchContent = async () => {
           action: handleSearchContent,
         },
         {
+          id: 'search_shaders',
+          action: handleSearchShaders,
+        },
+        {
+          id: 'search_resource_packs',
+          action: handleSearchResourcePacks,
+        },
+        {
           id: 'from_file',
           action: handleAddContentFromFile,
         },
@@ -52,7 +74,15 @@ const handleSearchContent = async () => {
       <DropdownIcon />
       <template #search>
         <SearchIcon />
-        <span class="no-wrap"> Search </span>
+        <span class="no-wrap"> Search {{ instance.loader === 'vanilla' ? 'datapacks' : 'mods' }} </span>
+      </template>
+      <template #search_shaders>
+        <SearchIcon />
+        <span class="no-wrap"> Search shaders </span>
+      </template>
+      <template #search_resource_packs>
+        <SearchIcon />
+        <span class="no-wrap"> Search resource packs </span>
       </template>
       <template #from_file>
         <FolderOpenIcon />

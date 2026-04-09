@@ -14,7 +14,7 @@
     <div class="app-logo-wrapper" data-tauri-drag-region>
       <div class="brand-lockup">
         <div class="brand-mark">
-          <PirateShipIcon />
+          <img src="@/assets/logo.png" alt="Logo" class="custom-logo" />
         </div>
         <div class="brand-copy">
           <span class="brand-name">Kesor Launcher</span>
@@ -149,10 +149,12 @@ const handleClose = async () => {
   border: 1px solid rgba(112, 255, 171, 0.18);
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
 
-  :deep(svg) {
-    width: 2rem;
-    height: 2rem;
+  :deep(svg),
+  .custom-logo {
+    width: 2.5rem;
+    height: 2.5rem;
     color: var(--color-brand);
+    object-fit: contain;
   }
 }
 

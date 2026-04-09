@@ -9,8 +9,10 @@ import { handleError } from '@/store/notifications.js'
 import dayjs from 'dayjs'
 import { get_search_results } from '@/helpers/cache.js'
 
-const featuredModpacks = ref({})
-const featuredMods = ref({})
+const featuredModpacks = ref([])
+const featuredMods = ref([])
+const featuredShaders = ref([])
+const featuredResourcePacks = ref([])
 const filter = ref('')
 
 const route = useRoute()
@@ -62,34 +64,69 @@ const getFeaturedModpacks = async () => {
     featuredModpacks.value = []
   }
 }
+
 const getFeaturedMods = async () => {
   const response = await get_search_results('?facets=[["project_type:mod"]]&limit=10&index=follows')
 
   if (response) {
     featuredMods.value = response.result.hits
   } else {
-    featuredModpacks.value = []
+    featuredMods.value = []
+  }
+}
+
+const getFeaturedShaders = async () => {
+  const response = await get_search_results('?facets=[["project_type:shader"]]&limit=10&index=follows')
+
+  if (response) {
+    featuredShaders.value = response.result.hits
+  } else {
+    featuredShaders.value = []
+  }
+}
+
+const getFeaturedResourcePacks = async () => {
+  const response = await get_search_results(
+    '?facets=[["project_type:resourcepack"]]&limit=10&index=follows',
+  )
+
+  if (response) {
+    featuredResourcePacks.value = response.result.hits
+  } else {
+    featuredResourcePacks.value = []
   }
 }
 
 await getInstances()
 
-await Promise.all([getFeaturedModpacks(), getFeaturedMods()])
+await Promise.all([
+  getFeaturedModpacks(),
+  getFeaturedMods(),
+  getFeaturedShaders(),
+  getFeaturedResourcePacks(),
+])
 
 const unlistenProfile = await profile_listener(async (e) => {
   await getInstances()
 
   if (e.event === 'added' || e.event === 'created' || e.event === 'removed') {
-    await Promise.all([getFeaturedModpacks(), getFeaturedMods()])
+    await Promise.all([
+      getFeaturedModpacks(),
+      getFeaturedMods(),
+      getFeaturedShaders(),
+      getFeaturedResourcePacks(),
+    ])
   }
 })
 
-// computed sums of recentInstances, featuredModpacks, featuredMods, treating them as arrays if they are not
+// computed sums of recentInstances, featuredModpacks, featuredMods, featuredShaders, featuredResourcePacks, treating them as arrays if they are not
 const total = computed(() => {
   return (
     (recentInstances.value?.length ?? 0) +
     (featuredModpacks.value?.length ?? 0) +
-    (featuredMods.value?.length ?? 0)
+    (featuredMods.value?.length ?? 0) +
+    (featuredShaders.value?.length ?? 0) +
+    (featuredResourcePacks.value?.length ?? 0)
   )
 })
 
@@ -120,6 +157,18 @@ onUnmounted(() => {
           label: 'Popular mods',
           route: '/browse/mod',
           instances: featuredMods,
+          downloaded: false,
+        },
+        {
+          label: 'Popular shaders',
+          route: '/browse/shader',
+          instances: featuredShaders,
+          downloaded: false,
+        },
+        {
+          label: 'Popular resource packs',
+          route: '/browse/resourcepack',
+          instances: featuredResourcePacks,
           downloaded: false,
         },
       ]"
